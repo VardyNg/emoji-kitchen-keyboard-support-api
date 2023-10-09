@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Emoji Kitchen Keyboard Support Web - API",
   "scripts": {
-    "test": "echo \"No tests yet...\"",
-    "start": "func host start"
+    "start": "sls offline",
+    "deploy": "sls deploy",
+    "undeploy": "sls remove"
   },
   "keywords": [
     "azure",
