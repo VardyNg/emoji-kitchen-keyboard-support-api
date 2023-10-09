@@ -1,0 +1,36 @@
+name: Deploy Azure Serverless Application
+
+on:
+  push:
+    branches:
+      - main # Change this to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install Azure Functions Core Tools
+      run: npm install
+
+    - name: Deploy Azure Serverless Application
+      run: |
+        # Navigate to your serverless application directory
+        cd path/to/your/serverless/app
+
+        # Deploy your Azure Functions application
+        func azure functionapp publish <FunctionAppName> --build remote
+
