@@ -58,7 +58,20 @@ functions:
         methods:
           - GET
         authLevel: anonymous
-
+  
+  storeForm:
+    handler: src/handlers/storeForm.sayGoodbye
+    apim:
+      api: ekk-support-api
+      operations:
+        - method: POST
+          urlTemplate: /form
+          displayName: Store Form
+    events:
+      - http: true
+        methods:
+          - POST
+        authLevel: anonymous
 plugins: # look for additional plugins in the community plugins repo: https://github.com/serverless/plugins
   - serverless-azure-functions
   - serverless-webpack
