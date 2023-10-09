@@ -27,6 +27,6 @@ jobs:
       run: npm install
 
     - name: Deploy Azure Serverless Application
-      run: sls deploy
+      run: serverless deploy
         
 
