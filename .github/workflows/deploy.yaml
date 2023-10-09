@@ -23,7 +23,7 @@ jobs:
       with:
         node-version: 14
 
-    - name: Install Azure Functions Core Tools
+    - name: Install dependencies
       run: npm install
 
     - name: Deploy Azure Serverless Application
