@@ -27,10 +27,6 @@ jobs:
       run: npm install
 
     - name: Deploy Azure Serverless Application
-      run: |
-        # Navigate to your serverless application directory
-        cd path/to/your/serverless/app
-
-        # Deploy your Azure Functions application
-        func azure functionapp publish <FunctionAppName> --build remote
+      run: sls deploy
+        
 
