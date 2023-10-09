@@ -1,7 +1,7 @@
 {
-  "name": "emoji-kitchen-keyboard-support-api",
+  "name": "ekk-support-api",
   "version": "1.0.0",
-  "description": "Azure Functions webpack sample for the Serverless framework using Typescript",
+  "description": "Emoji Kitchen Keyboard Support Web - API",
   "scripts": {
     "test": "echo \"No tests yet...\"",
     "start": "func host start"
