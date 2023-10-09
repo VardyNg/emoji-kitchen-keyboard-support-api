@@ -1,0 +1,26 @@
+{
+  "name": "emoji-kitchen-keyboard-support-api",
+  "version": "1.0.0",
+  "description": "Azure Functions webpack sample for the Serverless framework using Typescript",
+  "scripts": {
+    "test": "echo \"No tests yet...\"",
+    "start": "func host start"
+  },
+  "keywords": [
+    "azure",
+    "serverless"
+  ],
+  "dependencies": {
+    "serverless": "^3.35.2"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.0.3",
+    "@types/node": "^13.1.8",
+    "fork-ts-checker-webpack-plugin": "^3.0.1",
+    "serverless-azure-functions": "^2.2.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
