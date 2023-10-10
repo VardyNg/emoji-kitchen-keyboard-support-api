@@ -70,13 +70,13 @@ functions:
     apim:
       api: ekk-support-api
       operations:
-        - method: POST
+        - method: Get
           urlTemplate: /form
           displayName: Store Form
     events:
       - http: true
         methods:
-          - POST
+          - GET
         authLevel: anonymous
 plugins: # look for additional plugins in the community plugins repo: https://github.com/serverless/plugins
   - serverless-azure-functions
