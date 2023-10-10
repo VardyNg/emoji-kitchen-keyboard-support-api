@@ -29,9 +29,9 @@ jobs:
     - name: Deploy Azure Serverless Application
       run: |
         npx serverless deploy \
-        --param="FORM_COSMOS_ENDPOINT=${{ secrets.FORM_COSMOS_ENDPOINT }}" \
-        --param="FORM_COSMOS_KEY=${{ secrets.FORM_COSMOS_KEY }}" \
-        --param="FORM_DATABASE_ID=${{ secrets.FORM_DATABASE_ID }}" \
-        --param="FORM_CONTAINER_ID=${{ secrets.FORM_CONTAINER_ID }}" \
+          --param="FORM_COSMOS_ENDPOINT=${{ secrets.FORM_COSMOS_ENDPOINT }}" \
+          --param="FORM_COSMOS_KEY=${{ secrets.FORM_COSMOS_KEY }}" \
+          --param="FORM_DATABASE_ID=${{ secrets.FORM_DATABASE_ID }}" \
+          --param="FORM_CONTAINER_ID=${{ secrets.FORM_CONTAINER_ID }}"
         
 
