@@ -29,11 +29,8 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-    
-    - name: env test
-      run: echo ${{ secrets.FORM_COSMOS_ENDPOINT }}
 
-    - name: Serverless deploy
+    - name: Deploy Azure Serverless Application
       run: |
         npx serverless deploy \
           --param="FORM_COSMOS_ENDPOINT=$FORM_COSMOS_ENDPOINT" \
