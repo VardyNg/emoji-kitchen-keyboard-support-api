@@ -24,6 +24,12 @@ provider:
         path: v1
         subscriptionRequired: false
         authorization: none
+  
+  environment:
+    FORM_COSMOS_ENDPOINT: ${parm:FORM_COSMOS_ENDPOINT}
+    FORM_COSMOS_KEY: ${parm:FORM_COSMOS_KEY}
+    FORM_DATABASE_ID: ${parm:FORM_DATABASE_ID}
+    FORM_CONTAINER_ID: ${parm:FORM_CONTAINER_ID}
 
 custom:
   webpack:
