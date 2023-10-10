@@ -66,7 +66,7 @@ functions:
         authLevel: anonymous
   
   storeForm:
-    handler: src/handlers/storeForm.storeForm
+    handler: src/handlers/storeForm.main
     apim:
       api: ekk-support-api
       operations:

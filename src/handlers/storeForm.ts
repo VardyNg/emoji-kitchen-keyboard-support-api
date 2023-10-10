@@ -1,6 +1,6 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 import container from './cosmosClient';
-const storeForm: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+const main: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
   context.log('Typescript HTTP trigger function processed a request.');
 
   const item = {
@@ -34,4 +34,4 @@ const storeForm: AzureFunction = async function (context: Context, req: HttpRequ
   }
 }
 
-module.exports.storeForm = storeForm;
+module.exports.main = main;
