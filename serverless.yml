@@ -70,7 +70,7 @@ functions:
     apim:
       api: ekk-support-api
       operations:
-        - method: POST
+        - method: post
           urlTemplate: /form
           displayName: Store Form
     events:
