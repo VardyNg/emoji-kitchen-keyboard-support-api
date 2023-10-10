@@ -13,6 +13,10 @@ jobs:
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      FORM_COSMOS_ENDPOINT: ${{ secrets.FORM_COSMOS_ENDPOINT}}
+      FORM_COSMOS_KEY: ${{ secrets.FORM_COSMOS_KEY}}
+      FORM_DATABASE_ID: ${{ secrets.FORM_DATABASE_ID}}
+      FORM_CONTAINER_ID: ${{ secrets.FORM_CONTAINER_ID}}
 
     steps:
     - name: Checkout code
@@ -28,13 +32,13 @@ jobs:
     
     - name: env test
       run: echo ${{ secrets.FORM_COSMOS_ENDPOINT }}
-      
+
     - name: Serverless deploy
       run: |
         npx serverless deploy \
-          --param="FORM_COSMOS_ENDPOINT=${{ secrets.FORM_COSMOS_ENDPOINT }}" \
-          --param="FORM_COSMOS_KEY=${{ secrets.FORM_COSMOS_KEY }}" \
-          --param="FORM_DATABASE_ID=${{ secrets.FORM_DATABASE_ID }}" \
-          --param="FORM_CONTAINER_ID=${{ secrets.FORM_CONTAINER_ID }}"
+          --param="FORM_COSMOS_ENDPOINT=$FORM_COSMOS_ENDPOINT" \
+          --param="FORM_COSMOS_KEY=$FORM_COSMOS_KEY" \
+          --param="FORM_DATABASE_ID=$FORM_DATABASE_ID" \
+          --param="FORM_CONTAINER_ID=$FORM_CONTAINER_ID"
         
 
