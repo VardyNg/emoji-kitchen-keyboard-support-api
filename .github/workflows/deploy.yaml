@@ -33,6 +33,7 @@ jobs:
     - name: Deploy Azure Serverless Application
       run: |
         npx serverless deploy \
+          -- verbose \
           --param="FORM_COSMOS_ENDPOINT=$FORM_COSMOS_ENDPOINT" \
           --param="FORM_COSMOS_KEY=$FORM_COSMOS_KEY" \
           --param="FORM_DATABASE_ID=$FORM_DATABASE_ID" \
