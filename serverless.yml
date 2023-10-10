@@ -26,10 +26,10 @@ provider:
         authorization: none
   
   environment:
-    FORM_COSMOS_ENDPOINT: ${param:FORM_COSMOS_ENDPOINT}
-    FORM_COSMOS_KEY: ${param:FORM_COSMOS_KEY}
-    FORM_DATABASE_ID: ${param:FORM_DATABASE_ID}
-    FORM_CONTAINER_ID: ${param:FORM_CONTAINER_ID}
+    FORM_COSMOS_ENDPOINT: ${env:FORM_COSMOS_ENDPOINT}
+    FORM_COSMOS_KEY: ${env:FORM_COSMOS_KEY}
+    FORM_DATABASE_ID: ${env:FORM_DATABASE_ID}
+    FORM_CONTAINER_ID: ${env:FORM_CONTAINER_ID}
 
 custom:
   webpack:
