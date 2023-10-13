@@ -101,7 +101,7 @@
     {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
-      "name": "hello-world",
+      "name": "emoji-kitchen-keyboard",
       "location": "[parameters('location')]",
       "kind": "functionapp",
       "identity": {
@@ -121,7 +121,7 @@
             },
             {
               "name": "WEBSITE_CONTENTSHARE",
-              "value": "hello-world"
+              "value": "emoji-kitchen-keyboard"
             },
             {
               "name": "FUNCTIONS_EXTENSION_VERSION",
