@@ -30,7 +30,7 @@ jobs:
           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
           --template-file $templateFile \
           --parameters $parametersFile \
-          --parameters publisherEmail=${{ secrets.AZURE_PUBLISHER_EMAIL }} \
-          --parameters publisherName=${{ secrets.AZURE_PUBLISHER_NAME }} \
+          --parameters publisherEmail="${{ secrets.AZURE_PUBLISHER_EMAIL }}" \
+          --parameters publisherName="${{ secrets.AZURE_PUBLISHER_NAME }}" \
           
 
