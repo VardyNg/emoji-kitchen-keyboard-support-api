@@ -20,7 +20,17 @@ jobs:
 
     - name: Set subscription
       run: az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
+    
+    - name: Get change set 
+      run: |
+        az deployment group create \
+          --what-if \
+          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+          --template-file $templateFile \
+          --parameters $parametersFile \
+          --parameters publisherEmail="${{ secrets.AZURE_PUBLISHER_EMAIL }}" \
+          --parameters publisherName="${{ secrets.AZURE_PUBLISHER_NAME }}" \
+          
     - name: Deploy ARM Template
       run: |
         templateFile=azuredeploy.json
