@@ -24,6 +24,7 @@ jobs:
     - name: Get change set 
       run: |
         templateFile=azuredeploy.json
+        parametersFile=azuredeploy.parameters.json
         az deployment group create \
           --what-if \
           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
