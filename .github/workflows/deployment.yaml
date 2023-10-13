@@ -23,6 +23,7 @@ jobs:
     
     - name: Get change set 
       run: |
+        templateFile=azuredeploy.json
         az deployment group create \
           --what-if \
           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
@@ -30,7 +31,7 @@ jobs:
           --parameters $parametersFile \
           --parameters publisherEmail="${{ secrets.AZURE_PUBLISHER_EMAIL }}" \
           --parameters publisherName="${{ secrets.AZURE_PUBLISHER_NAME }}" \
-          
+
     - name: Deploy ARM Template
       run: |
         templateFile=azuredeploy.json
