@@ -24,10 +24,9 @@ jobs:
     - name: Deploy ARM Template
       run: |
         templateFile=azuredeploy.json
-        resourceGroup=$AZURE_RESOURCE_GROUP
 
         # Deploy the ARM template
         az deployment group create \
-          --resource-group $resourceGroup \
+          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
           --template-file $templateFile
 
