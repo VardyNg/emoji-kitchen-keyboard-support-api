@@ -54,6 +54,9 @@
       }
     }
   },
+  "variables": {
+    "hostingPlanName": "emojikitchenkeyboard-hosting-plan"
+  },
   "resources": [
     {
       "type": "Microsoft.ApiManagement/service",
@@ -68,6 +71,17 @@
         "publisherEmail": "[parameters('publisherEmail')]",
         "publisherName": "[parameters('publisherName')]"
       }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2021-03-01",
+      "name": "[variables('hostingPlanName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Y1",
+        "tier": "Dynamic"
+      },
+      "properties": {}
     }
   ]
 }
