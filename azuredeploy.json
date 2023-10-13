@@ -56,7 +56,7 @@
   },
   "variables": {
     "hostingPlanName": "emojikitchenkeyboard-hosting-plan",
-    "storageAccountName": "ekk-function-sa"
+    "storageAccountName": "ekkfunctionsa"
   },
   "resources": [
     {
