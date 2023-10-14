@@ -10,7 +10,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-    "target": "es2017",
+    "target": "ES5",
     "outDir": "lib"
   },
   "include": ["./**/*.ts"],
