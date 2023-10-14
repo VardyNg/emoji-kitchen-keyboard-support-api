@@ -162,23 +162,7 @@
       "name": "[format('{0}/{1}', variables('functionAppName'), 'hello-world')]",
       "properties": {
         "config": {
-          "disabled": false,
-          "bindings": [
-            {
-              "name": "req",
-              "type": "httpTrigger",
-              "direction": "in",
-              "authLevel": "function",
-              "methods": [
-                "get"
-              ]
-            },
-            {
-              "name": "$return",
-              "type": "http",
-              "direction": "out"
-            }
-          ]
+          "disabled": false
         },
         "files": {
           "hello.js": ""
