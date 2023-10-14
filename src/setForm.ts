@@ -8,18 +8,18 @@ const containerId = "YourContainerId";
 export async function setForm(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
     context.log(process.env)
-    
-    const cosmosClient = new CosmosClient(cosmosDBConnectionString);
-    const container = cosmosClient.database(databaseId).container(containerId);
-
-    // Define the item you want to insert into Cosmos DB
-    const newItem = {
-        id: Date.now().toString(), // You should use a unique ID for your items
-        name: name,
-        // Add other properties as needed
-    };
 
     try {
+        const cosmosClient = new CosmosClient(cosmosDBConnectionString);
+        const container = cosmosClient.database(databaseId).container(containerId);
+
+        // Define the item you want to insert into Cosmos DB
+        const newItem = {
+            id: Date.now().toString(), // You should use a unique ID for your items
+            name: name,
+            // Add other properties as needed
+        };
+
         const { resource } = await container.items.create(newItem);
         return {
             status: 200,
