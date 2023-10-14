@@ -53,6 +53,13 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },
+    "appInsightsName": {
+      "type": "string",
+      "defaultValue": "[format('appinsights{0}', uniqueString(resourceGroup().id))]",
+      "metadata": {
+        "description": "The name of the Application Insights instance"
+      }
     }
   },
   "variables": {
@@ -133,10 +140,10 @@
               "name": "WEBSITE_NODE_DEFAULT_VERSION",
               "value": "~18"
             },
-            // {
-            //   "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            //   "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
-            // },
+            {
+              "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+              "value": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsightsName')), '2020-02-02').InstrumentationKey]"
+            },
             {
               "name": "FUNCTIONS_WORKER_RUNTIME",
               "value": "node"
@@ -156,6 +163,19 @@
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
+    },
+    {
+      "apiVersion": "2014-04-01",
+      "name": "[parameters('appInsightsName')]",
+      "type": "Microsoft.Insights/components",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('functionAppName'))]": "Resource",
+        "displayName": "AppInsightsComponent"
+      },
+      "properties": {
+        "applicationId": "[parameters('appInsightsName')]"
+      }
     }
   ]
 }
