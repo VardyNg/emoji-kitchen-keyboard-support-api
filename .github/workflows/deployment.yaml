@@ -66,21 +66,21 @@ jobs:
     - name: Build project
       run: tsc
 
-    - name: Make ZIP file
-      run: |
-        mkdir -p source
-        cp -r lib source/functions
-        cp -r node_modules source
-        cp package.json source
-        cp package-lock.json source
-        cp host.json source
+    # - name: Make ZIP file
+    #   run: |
+    #     mkdir -p source
+    #     cp -r lib source/functions
+    #     cp -r node_modules source
+    #     cp package.json source
+    #     cp package-lock.json source
+    #     cp host.json source
         
-        zip -r source.zip source
+    #     zip -r source.zip source
     
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
       id: fa
       with:
         app-name: emoji-kitchen-keyboard
-        package: source
+        package: .
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
