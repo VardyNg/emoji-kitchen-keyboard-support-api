@@ -1,19 +1,15 @@
-import { AzureFunction, Context, HttpRequest } from '@azure/functions';
+import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 
-const sayHello: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-  context.log('Typescript HTTP trigger function processed a request.');
+export async function hello(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+    context.log(`Http function processed request for url "${request.url}"`);
 
-  if (req.query.name || (req.body?.name)) {
-    context.res = {
-      // status: 200, /* Defaults to 200 */
-      body: `Hello ${(req.query.name || req.body.name)}`
-    };
-  } else {
-    context.res = {
-      status: 400,
-      body: 'Please pass a name on the query string or in the request body'
-    };
-  }
-}
+    const name = request.query.get('name') || await request.text() || 'world';
 
-module.exports.sayHello = sayHello;
+    return { body: `Hello, ${name}!` };
+};
+
+app.http('hello', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: hello
+});
