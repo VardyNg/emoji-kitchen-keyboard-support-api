@@ -1,9 +1,9 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 import { CosmosClient } from "@azure/cosmos";
 
-const cosmosDBConnectionString = process.env.CosmosDBConnectionString;
-const databaseId = "YourDatabaseId";
-const containerId = "YourContainerId";
+const cosmosDBConnectionString = process.env.FORM_COSMOS_KEY;
+const databaseId = process.env.FORM_DATABASE_ID;
+const containerId = process.env.FORM_CONTAINER_ID;
 
 export async function setForm(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
