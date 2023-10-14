@@ -17,5 +17,5 @@
     }
   ],
   "entryPoint": "sayHello",
-  "scriptFile": "../source/hello.js"
+  "scriptFile": "../lib/hello.js"
 }
