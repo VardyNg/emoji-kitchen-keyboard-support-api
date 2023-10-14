@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["es2017"],
+    "lib": [
+      "es2017",
+      "ES2018",
+      "DOM"
+    ],
     "removeComments": true,
     "moduleResolution": "node",
     "noUnusedLocals": true,
@@ -16,5 +20,6 @@
     ".webpack/**/*",
     "_warmup/**/*",
     ".vscode/**/*"
-  ]
+  ],
+  
 }
