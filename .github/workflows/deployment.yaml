@@ -50,6 +50,9 @@ jobs:
     needs: deploy-ARM-template
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+ 
     - name: Show environment
       run: |
         pwd
