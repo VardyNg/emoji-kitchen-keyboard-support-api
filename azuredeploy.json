@@ -161,6 +161,7 @@
       "apiVersion": "2020-12-01",
       "name": "[format('{0}/{1}', variables('functionAppName'), 'hello-world')]",
       "properties": {
+        "script_href": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/HttpTrigger?code=', listKeys(resourceId('Microsoft.Web/sites/functions/keys', variables('functionAppName'), 'HttpTrigger'), '2021-03-01').default)]",
         "config": {
           "disabled": false,
           "bindings": [
@@ -179,9 +180,6 @@
               "direction": "out"
             }
           ]
-        },
-        "files": {
-          "hello.js": ""
         }
       },
       "dependsOn": [
