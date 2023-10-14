@@ -19,10 +19,13 @@ export async function setForm(request: HttpRequest, context: InvocationContext):
             insertTime: new Date().toISOString(),
         };
 
+        console.log(newItem)
+
         const { resource } = await container.items.create(newItem);
         return {
             status: 200,
             body: `Item inserted with ID: ${resource.id}`,
+            
         };
     } catch (error) {
         return {
