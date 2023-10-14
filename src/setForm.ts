@@ -1,7 +1,7 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 import { CosmosClient } from "@azure/cosmos";
 
-const cosmosDBConnectionString = process.env.FORM_COSMOS_KEY;
+const cosmosDBConnectionString = process.env.COSMOSDB_CONNECTION_STRING;
 const databaseId = process.env.FORM_DATABASE_ID;
 const containerId = process.env.FORM_CONTAINER_ID;
 

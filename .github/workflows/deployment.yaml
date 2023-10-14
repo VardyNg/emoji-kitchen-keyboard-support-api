@@ -34,7 +34,7 @@ jobs:
           --parameters publisherName="${{ secrets.AZURE_PUBLISHER_NAME }}" \
           --parameters FORM_CONTAINER_ID="${{ secrets.FORM_CONTAINER_ID }}" \
           --parameters FORM_DATABASE_ID="${{ secrets.FORM_DATABASE_ID }}" \
-          --parameters FORM_COSMOS_KEY="${{ secrets.FORM_COSMOS_KEY }}"
+          --parameters COSMOSDB_CONNECTION_STRING="${{ secrets.COSMOSDB_CONNECTION_STRING }}"
 
     - name: Deploy ARM Template
       run: |
@@ -49,7 +49,7 @@ jobs:
           --parameters publisherName="${{ secrets.AZURE_PUBLISHER_NAME }}" \
           --parameters FORM_CONTAINER_ID="${{ secrets.FORM_CONTAINER_ID }}" \
           --parameters FORM_DATABASE_ID="${{ secrets.FORM_DATABASE_ID }}" \
-          --parameters FORM_COSMOS_KEY="${{ secrets.FORM_COSMOS_KEY }}"
+          --parameters COSMOSDB_CONNECTION_STRING="${{ secrets.COSMOSDB_CONNECTION_STRING }}"
   
   deploy-function-app:
     runs-on: ubuntu-latest

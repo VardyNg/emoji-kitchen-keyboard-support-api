@@ -76,7 +76,7 @@
         "description": "The name of the database where the form is stored"
       }
     },
-    "FORM_COSMOS_KEY": {
+    "COSMOSDB_CONNECTION_STRING": {
       "type": "string",
       "minLength": 1,
       "metadata": {
@@ -183,8 +183,8 @@
               "value": "[parameters('FORM_DATABASE_ID')]"
             },
             {
-              "name": "FORM_COSMOS_KEY",
-              "value": "[parameters('FORM_COSMOS_KEY')]"
+              "name": "COSMOSDB_CONNECTION_STRING",
+              "value": "[parameters('COSMOSDB_CONNECTION_STRING')]"
             }
           ],
           "ftpsState": "FtpsOnly",
