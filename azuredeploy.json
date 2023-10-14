@@ -138,6 +138,10 @@
             {
               "name": "FUNCTIONS_WORKER_RUNTIME",
               "value": "go"
+            },
+            {
+              "name": "WEBSITE_RUN_FROM_PACKAGE",
+              "value": "1"
             }
           ],
           "ftpsState": "FtpsOnly",
