@@ -8,6 +8,9 @@
     "sku": {
       "value": "Consumption"
     },
+    "skuCount": {
+      "value": 0
+    },
     "appInsightsName": {
       "value": "emojikitchenkeyboard-appinsights"
     }
