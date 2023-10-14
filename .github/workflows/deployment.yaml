@@ -8,11 +8,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+    
     - name: Login to Azure
       uses: azure/login@v1
       with:
@@ -45,4 +45,25 @@ jobs:
           --parameters publisherEmail="${{ secrets.AZURE_PUBLISHER_EMAIL }}" \
           --parameters publisherName="${{ secrets.AZURE_PUBLISHER_NAME }}" \
           
+    - name: Install dependencies
+      run: |
+        npm install
+        npm install -g typescript
 
+    - name: Build project
+      run: tsc --watch
+
+    - name: Make ZIP file
+      run: |
+        mkdir -p source
+        cp -r lib source/functions
+        cp -r node_modules source
+        cp package.json source
+        cp package-lock.json source
+        cp host.json source
+        
+        zip -r source.zip source
+    
+    - name: Deploy to function app
+      run: |
+        az functionapp deployment source config-zip -g ${{ secrets.AZURE_RESOURCE_GROUP }} -n emoji-kitchen-keyboard --src "./source.zip"
