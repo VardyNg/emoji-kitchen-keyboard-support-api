@@ -61,6 +61,27 @@
       "metadata": {
         "description": "The name of the Application Insights instance"
       }
+    },
+    "FORM_CONTAINER_ID": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "The name of the container where the form is stored"
+      }
+    },
+    "FORM_DATABASE_ID": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "The name of the database where the form is stored"
+      }
+    },
+    "FORM_COSMOS_KEY": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "Cosmos DB key"
+      }
     }
   },
   "variables": {
@@ -152,6 +173,18 @@
             {
               "name": "WEBSITE_RUN_FROM_PACKAGE",
               "value": "1"
+            },
+            {
+              "name": "FORM_CONTAINER_ID",
+              "value": "[parameters('FORM_CONTAINER_ID')]"
+            },
+            {
+              "name": "FORM_DATABASE_ID",
+              "value": "[parameters('FORM_DATABASE_ID')]"
+            },
+            {
+              "name": "FORM_COSMOS_KEY",
+              "value": "[parameters('FORM_COSMOS_KEY')]"
             }
           ],
           "ftpsState": "FtpsOnly",
