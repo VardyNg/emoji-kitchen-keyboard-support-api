@@ -6,7 +6,7 @@ on:
       - ARM-template
 
 jobs:
-  deploy:
+  deploy-ARM-template:
     runs-on: ubuntu-latest
     
     steps:
@@ -44,7 +44,11 @@ jobs:
           --parameters $parametersFile \
           --parameters publisherEmail="${{ secrets.AZURE_PUBLISHER_EMAIL }}" \
           --parameters publisherName="${{ secrets.AZURE_PUBLISHER_NAME }}" \
-          
+  
+  deploy-function-app:
+    runs-on: ubuntu-latest
+    
+    steps:
     - name: Install dependencies
       run: |
         npm install
