@@ -56,7 +56,8 @@
   },
   "variables": {
     "hostingPlanName": "emojikitchenkeyboard-hosting-plan",
-    "storageAccountName": "ekkfunctionsa"
+    "storageAccountName": "ekkfunctionsa",
+    "functionAppName": "emoji-kitchen-keyboard"
   },
   "resources": [
     {
@@ -101,7 +102,7 @@
     {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
-      "name": "emoji-kitchen-keyboard",
+      "name": "[variables('functionAppName')]",
       "location": "[parameters('location')]",
       "kind": "functionapp",
       "identity": {
@@ -121,7 +122,7 @@
             },
             {
               "name": "WEBSITE_CONTENTSHARE",
-              "value": "emoji-kitchen-keyboard"
+              "value": "[variables('functionAppName')]"
             },
             {
               "name": "FUNCTIONS_EXTENSION_VERSION",
