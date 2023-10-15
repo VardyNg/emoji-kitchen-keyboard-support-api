@@ -1,0 +1,6 @@
+{
+  "disabled": false,
+  "bindings": [],
+  "entryPoint": "notifyUser",
+  "scriptFile": "../lib/notifyUser.js"
+}
