@@ -4,5 +4,11 @@
     "http": {
       "routePrefix": "api"
     }
+  },
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "Host.Triggers.CosmosDB": "Trace"
+    }
   }
 }
