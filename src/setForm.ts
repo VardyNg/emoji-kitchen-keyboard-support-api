@@ -14,13 +14,10 @@ interface RequestBody {
 
 export async function setForm(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
-    context.log(process.env)
-    context.log(request.body)
     context.log(request)
     try {
-        const requestBody: RequestBody = request.body as unknown as RequestBody;
-        
-        console.log(requestBody.deviceType)
+        const body = await request.text();
+        const requestBody: RequestBody = JSON.parse(body);
         const { deviceType, selectedDeviceType, selectedDeviceModel, selectedOS, selectedIssues, describedIssues, inputEmail } = requestBody;
 
         // Define the item you want to insert into Cosmos DB
@@ -42,7 +39,6 @@ export async function setForm(request: HttpRequest, context: InvocationContext):
         return {
             status: 200,
             body: `Item inserted with ID: ${resource.id}`,
-            
         };
     } catch (error) {
         return {
