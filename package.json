@@ -5,7 +5,8 @@
   "scripts": {
     "start": "sls offline",
     "deploy": "sls deploy",
-    "undeploy": "sls remove"
+    "undeploy": "sls remove",
+    "build": "tsc"
   },
   "main": "lib/*.js",
   "keywords": [
