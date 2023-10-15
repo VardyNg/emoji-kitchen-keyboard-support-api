@@ -16,6 +16,6 @@
       "name": "res"
     }
   ],
-  "entryPoint": "sayHello",
+  "entryPoint": "hello",
   "scriptFile": "../lib/hello.js"
 }
