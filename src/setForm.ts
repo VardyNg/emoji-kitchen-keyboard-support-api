@@ -5,7 +5,7 @@ import { container } from './util/cosmosdbClient';
 export async function setForm(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
     context.log(process.env)
-
+    context.log(request.body)
     try {
         const deviceType = request.query.get('deviceType')    
         const selectedDeviceType = request.query.get('selectedDeviceType')
