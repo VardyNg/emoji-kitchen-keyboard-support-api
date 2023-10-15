@@ -2,18 +2,25 @@ import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/fu
 import { v4 as uuidv4 } from 'uuid';
 import { container } from './util/cosmosdbClient';
 
+interface RequestBody {
+    deviceType: String;
+    selectedDeviceType: String;
+    selectedDeviceModel: String;
+    selectedOS: String;
+    selectedIssues: [String];
+    describedIssues: String;
+    inputEmail: String;
+};
+
 export async function setForm(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
     context.log(process.env)
     context.log(request.body)
     try {
-        const deviceType = request.query.get('deviceType')    
-        const selectedDeviceType = request.query.get('selectedDeviceType')
-        const selectedDeviceModel = request.query.get('selectedDeviceModel')
-        const selectedOS = request.query.get('selectedOS')
-        const selectedIssues = request.query.get('selectedIssues')
-        const describedIssues = request.query.get('describedIssues')
-        const inputEmail = request.query.get('inputEmail')
+        const requestBody: RequestBody = request.body as unknown as RequestBody;
+        
+        console.log(requestBody.deviceType)
+        const { deviceType, selectedDeviceType, selectedDeviceModel, selectedOS, selectedIssues, describedIssues, inputEmail } = requestBody;
 
         // Define the item you want to insert into Cosmos DB
         const newItem = {
