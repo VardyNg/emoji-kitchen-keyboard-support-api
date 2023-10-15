@@ -16,6 +16,7 @@ export async function setForm(request: HttpRequest, context: InvocationContext):
     context.log(`Http function processed request for url "${request.url}"`);
     context.log(process.env)
     context.log(request.body)
+    context.log(request)
     try {
         const requestBody: RequestBody = request.body as unknown as RequestBody;
         
