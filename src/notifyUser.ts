@@ -15,5 +15,6 @@ app.cosmosDB('cosmosDBTrigger', {
   databaseName: process.env.FORM_DATABASE_ID,
   containerName: process.env.FORM_CONTAINER_ID,
   connectionStringSetting: process.env.COSMOSDB_CONNECTION_STRING,
+  createLeaseCollectionIfNotExists: true,
   handler: notfiyUser,
 });
