@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "COSMOSDB_CONNECTION_STRING": "",
+    "FORM_DATABASE_ID": "",
+    "FORM_CONTAINER_ID": ""
+  }
+}
