@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Emoji Kitchen Keyboard Support Web - API",
   "scripts": {
-    "start": "sls offline",
+    "start": "func start host --typescript --verbose",
     "deploy": "sls deploy",
     "undeploy": "sls remove",
     "build": "tsc"
