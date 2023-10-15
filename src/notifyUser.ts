@@ -10,7 +10,7 @@ export async function notfiyUser(documents: unknown[], context: InvocationContex
 
 };
 
-app.cosmosDB('notifyUser', {
+app.cosmosDB('cosmosDBTrigger', {
   connection: 'e2eTest_cosmosDB',
   databaseName: process.env.FORM_DATABASE_ID,
   containerName: process.env.FORM_CONTAINER_ID,
