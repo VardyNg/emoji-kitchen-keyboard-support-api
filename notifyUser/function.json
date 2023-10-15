@@ -1,6 +1,16 @@
 {
   "disabled": false,
-  "bindings": [],
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "documents",
+      "direction": "in",
+      "databaseName": "%FORM_DATABASE_ID%",
+      "collectionName": "%FORM_CONTAINER_ID%",
+      "connectionStringSetting": "%COSMOSDB_CONNECTION_STRING%",
+      "createLeaseCollectionIfNotExists": true
+    }
+  ],
   "entryPoint": "notifyUser",
   "scriptFile": "../lib/notifyUser.js"
 }
