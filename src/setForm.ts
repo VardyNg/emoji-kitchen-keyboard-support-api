@@ -1,18 +1,31 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 import { v4 as uuidv4 } from 'uuid';
-import { container } from './lib/cosmosdbClient';
+import { container } from './util/cosmosdbClient';
 
 export async function setForm(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
     context.log(process.env)
 
     try {
-        
+        const deviceType = request.query.get('deviceType')    
+        const selectedDeviceType = request.query.get('selectedDeviceType')
+        const selectedDeviceModel = request.query.get('selectedDeviceModel')
+        const selectedOS = request.query.get('selectedOS')
+        const selectedIssues = request.query.get('selectedIssues')
+        const describedIssues = request.query.get('describedIssues')
+        const inputEmail = request.query.get('inputEmail')
 
         // Define the item you want to insert into Cosmos DB
         const newItem = {
             id: uuidv4(), // You should use a unique ID for your items
             insertTime: new Date().toISOString(),
+            deviceType: deviceType,
+            selectedDeviceType: selectedDeviceType,
+            selectedDeviceModel: selectedDeviceModel,
+            selectedOS: selectedOS,
+            selectedIssues: selectedIssues,
+            describedIssues: describedIssues,
+            inputEmail: inputEmail
         };
 
         console.log(newItem)
